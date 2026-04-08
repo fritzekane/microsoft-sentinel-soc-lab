@@ -19,6 +19,14 @@ The lab includes:
 - KQL (Kusto Query Language)
 - MITRE ATT&CK
 
+  ## Microsoft Sentinel Detection Rule
+
+This rule detects multiple failed SSH login attempts from the same attacker IP.
+
+### Detection Rule Configuration
+
+![Sentinel Detection Rule](sentinel-detection-rule.png)
+
 ## Detection Scenario
 
 Attackers attempt brute-force SSH login attempts against a Linux VM.  
