@@ -36,12 +36,14 @@ Attackers attempted brute-force SSH login attempts against the Azure Linux VM.
 
 The following KQL query was used to identify repeated failed login attempts:
 
+```kql
 Syslog
 | where SyslogMessage contains "Failed password"
 | parse SyslogMessage with * "from " attackerIP " port " *
 | summarize Attempts = count(), FirstSeen=min(TimeGenerated), LastSeen=max(TimeGenerated) by attackerIP
 | where Attempts > 5
 | sort by Attempts desc
+```
 
 ### Detected brute force activity
 
