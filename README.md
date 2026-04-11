@@ -11,6 +11,9 @@ The lab includes:
 - MITRE ATT&CK mapping
 - Security monitoring using SIEM
 
+  ## Infrastructure Overview
+![Infrastructure](01-infrastructure-overview.png)
+
 ## Technologies Used
 
 - Microsoft Sentinel
@@ -24,8 +27,7 @@ The lab includes:
 This rule detects multiple failed SSH login attempts from the same attacker IP.
 
 ### Detection Rule Configuration
-
-![Sentinel Detection Rule](sentinel-detection-rule.png)
+![Detection Rule](04-detection-rule.png)
 
 ## Detection Scenario
 
@@ -44,23 +46,27 @@ Syslog
 | where Attempts > 5
 | sort by Attempts desc
 ```
+## Syslog Ingestion
+![Syslog](02-syslog-ingestion.png)
 
 ### Detected brute force activity
 
-![SSH Brute Force Detection](ssh-bruteforce-detected.png)
+![KQL Query](03-kql-detection-query.png) 
 
 ## Sentinel Incidents
 
 After the detection rule triggered, Microsoft Sentinel automatically generated security incidents for the detected SSH brute force activity.
 
-![Sentinel Incidents](sentinel-incidents.png)
+![Alerts](05-sentinel-alerts.png) 
 
 
 ## Sentinel Incident Investigation
 
-Opening the incident inside Microsoft Sentinel allows analysts to investigate the alert, view the attack timeline, and analyze the security event.
+Opening the incidentinside Microsoft Sentinel allows analysts to investigate the alert, view the attack timeline, and analyze the security event.
 
-![Sentinel Incident Investigation](sentinel-incident-investigation.png)
+![Incident](06-sentinel-incident.png) 
+
+![Investigation](07-incident-investigation.png)
 
 ## Sentinel Automation
 
@@ -69,3 +75,6 @@ An automation rule was created in Microsoft Sentinel to automatically tag incide
 This demonstrates basic SOC automation using Sentinel SOAR capabilities.
 
 ![Sentinel Automation](sentinel-automation-rule.png)
+
+## Attack Simulation
+![Attack](08-attack-simulation.png)
